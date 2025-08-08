@@ -1,4 +1,5 @@
-import { NavLink, Outlet, Route, Routes } from 'react-router-dom'
+import { useEffect, useRef, useState } from 'react'
+import { NavLink, Outlet, Route, Routes, useLocation } from 'react-router-dom'
 import ari from './assets/team/ari.svg'
 import jordan from './assets/team/jordan.svg'
 import samira from './assets/team/samira.svg'
@@ -14,27 +15,81 @@ function BrandBubble() {
 }
 
 function LeftNav() {
+  const location = useLocation()
+  const containerRef = useRef(null)
+  const itemRefs = useRef([])
+  const [hoverTop, setHoverTop] = useState(null)
+  const [hoverHeight, setHoverHeight] = useState(0)
+
+  const primaryItems = [
+    { type: 'link', to: '/', label: 'Home', icon: '🏠', end: true },
+    { type: 'link', to: '/team', label: 'Team', icon: '👥' },
+    { type: 'link', to: '/events', label: 'Events', icon: '📅' },
+  ]
+  const secondaryItems = [
+    { type: 'a', href: '#resources', label: 'Resources', icon: '📚' },
+  ]
+
+  const updateHighlightToActive = () => {
+    const activeIndex = primaryItems.findIndex((item) => {
+      if (item.to === '/') return location.pathname === '/'
+      return location.pathname.startsWith(item.to)
+    })
+    if (activeIndex >= 0 && itemRefs.current[activeIndex]) {
+      const el = itemRefs.current[activeIndex]
+      setHoverTop(el.offsetTop)
+      setHoverHeight(el.offsetHeight)
+    } else {
+      setHoverTop(null)
+    }
+  }
+
+  useEffect(() => {
+    updateHighlightToActive()
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [location.pathname])
+
+  const handleEnter = (index) => () => {
+    const el = itemRefs.current[index]
+    if (!el) return
+    setHoverTop(el.offsetTop)
+    setHoverHeight(el.offsetHeight)
+  }
+  const handleLeave = () => {
+    updateHighlightToActive()
+  }
+
   return (
-    <nav className="floating-nav collapsed-hover">
-      <div className="nav-group primary">
-        <NavLink to="/" end className={({ isActive }) => `nav-item ${isActive ? 'active' : ''}`}>
-          <span className="icon" aria-hidden>🏠</span>
-          <span className="label">Home</span>
-        </NavLink>
-        <NavLink to="/team" className={({ isActive }) => `nav-item ${isActive ? 'active' : ''}`}>
-          <span className="icon" aria-hidden>👥</span>
-          <span className="label">Team</span>
-        </NavLink>
-        <NavLink to="/events" className={({ isActive }) => `nav-item ${isActive ? 'active' : ''}`}>
-          <span className="icon" aria-hidden>📅</span>
-          <span className="label">Events</span>
-        </NavLink>
-      </div>
-      <div className="nav-group secondary">
-        <a className="nav-item" href="#resources">
-          <span className="icon" aria-hidden>📚</span>
-          <span className="label">Resources</span>
-        </a>
+    <nav ref={containerRef} className="floating-nav collapsed-hover" onMouseLeave={handleLeave}>
+      <div className="nav-inner">
+        <div className="nav-highlight" style={{
+          opacity: hoverTop == null ? 0 : 1,
+          transform: hoverTop == null ? 'translateY(0)' : `translateY(${hoverTop}px)`,
+          height: hoverHeight || 0,
+        }} />
+        <div className="nav-group primary">
+          {primaryItems.map((item, i) => (
+            <NavLink
+              key={item.label}
+              to={item.to}
+              end={item.end}
+              className={({ isActive }) => `nav-item ${isActive ? 'active' : ''}`}
+              ref={(el) => (itemRefs.current[i] = el)}
+              onMouseEnter={handleEnter(i)}
+            >
+              <span className="icon" aria-hidden>{item.icon}</span>
+              <span className="label">{item.label}</span>
+            </NavLink>
+          ))}
+        </div>
+        <div className="nav-group secondary">
+          {secondaryItems.map((item) => (
+            <a key={item.label} className="nav-item" href={item.href}>
+              <span className="icon" aria-hidden>{item.icon}</span>
+              <span className="label">{item.label}</span>
+            </a>
+          ))}
+        </div>
       </div>
     </nav>
   )
@@ -45,7 +100,9 @@ function Shell() {
     <div className="page-shell">
       <div className="left-rail">
         <BrandBubble />
-        <LeftNav />
+        <div className="nav-slot">
+          <LeftNav />
+        </div>
       </div>
       <div className="content-wrap">
         <Outlet />
