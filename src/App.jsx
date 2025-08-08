@@ -164,7 +164,7 @@ function HomePage() {
 }
 
 function TeamPage() {
-  const members = [
+  const leadership = [
     { name: 'Ari Mehta', role: 'President · Research Lead', img: ari },
     { name: 'Jordan Lee', role: 'Projects Lead', img: jordan },
     { name: 'Samira Gupta', role: 'Community & Ops', img: samira },
@@ -172,13 +172,20 @@ function TeamPage() {
     { name: 'Nora Park', role: 'Design & Content', img: nora },
     { name: 'You?', role: 'Core Team · Apply', img: you },
   ]
+  const avatarCycle = [ari, jordan, samira, diego, nora, you]
+  const fillers = Array.from({ length: 29 }, (_, i) => ({
+    name: `Member ${String(i + 1).padStart(2, '0')}`,
+    role: 'Member',
+    img: avatarCycle[i % avatarCycle.length],
+  }))
+  const members = [...leadership, ...fillers]
   return (
     <div>
       <h1 style={{ margin: 0 }}>Team</h1>
       <p className="muted">The crew behind KNOW‑I.</p>
       <div className="grid-3" style={{ marginTop: 24 }}>
-        {members.map((m) => (
-          <div key={m.name} className="team-card polaroid">
+        {members.map((m, idx) => (
+          <div key={`${m.name}-${idx}`} className="team-card polaroid">
             <div className="photo">
               <img src={m.img} alt={m.name} />
             </div>
