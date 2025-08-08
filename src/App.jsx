@@ -1,3 +1,4 @@
+import { useState } from 'react'
 import { NavLink, Outlet, Route, Routes } from 'react-router-dom'
 import ari from './assets/team/ari.svg'
 import jordan from './assets/team/jordan.svg'
@@ -7,37 +8,63 @@ import nora from './assets/team/nora.svg'
 import you from './assets/team/you.svg'
 import './index.css'
 
-function LeftNav() {
+function LeftNav({ collapsed, setCollapsed }) {
   return (
-    <nav className="floating-nav">
+    <nav className={`floating-nav ${collapsed ? 'collapsed' : ''}`}>
       <div>
-        <div className="brand">KNOW-I</div>
+        <div className="brand">{collapsed ? 'K' : 'KNOW-I'}</div>
+        <button
+          className="collapse-btn"
+          aria-label={collapsed ? 'Expand navigation' : 'Collapse navigation'}
+          onClick={() => setCollapsed((v) => !v)}
+        >
+          {collapsed ? '»' : '«'}
+        </button>
         <NavLink to="/" end className={({ isActive }) => `nav-item ${isActive ? 'active' : ''}`}>
-          Home
+          <span className="icon" aria-hidden>🏠</span>
+          <span className="label">Home</span>
         </NavLink>
         <NavLink to="/team" className={({ isActive }) => `nav-item ${isActive ? 'active' : ''}`}>
-          Team
+          <span className="icon" aria-hidden>👥</span>
+          <span className="label">Team</span>
         </NavLink>
         <NavLink to="/events" className={({ isActive }) => `nav-item ${isActive ? 'active' : ''}`}>
-          Events
+          <span className="icon" aria-hidden>📅</span>
+          <span className="label">Events</span>
         </NavLink>
-        <a className="nav-item" href="#projects">Projects</a>
-        <a className="nav-item" href="#resources">Resources</a>
+        <a className="nav-item" href="#projects">
+          <span className="icon" aria-hidden>🧪</span>
+          <span className="label">Projects</span>
+        </a>
+        <a className="nav-item" href="#resources">
+          <span className="icon" aria-hidden>📚</span>
+          <span className="label">Resources</span>
+        </a>
       </div>
       <div className="bottom">
         <div className="badge">Social</div>
-        <a className="nav-item" href="https://discord.gg" target="_blank" rel="noreferrer">Discord</a>
-        <a className="nav-item" href="https://x.com" target="_blank" rel="noreferrer">X/Twitter</a>
-        <a className="nav-item" href="mailto:hi@knowi.club">Contact</a>
+        <a className="nav-item" href="https://discord.gg" target="_blank" rel="noreferrer">
+          <span className="icon" aria-hidden>💬</span>
+          <span className="label">Discord</span>
+        </a>
+        <a className="nav-item" href="https://x.com" target="_blank" rel="noreferrer">
+          <span className="icon" aria-hidden>𝕏</span>
+          <span className="label">X/Twitter</span>
+        </a>
+        <a className="nav-item" href="mailto:hi@knowi.club">
+          <span className="icon" aria-hidden>✉️</span>
+          <span className="label">Contact</span>
+        </a>
       </div>
     </nav>
   )
 }
 
 function Shell() {
+  const [collapsed, setCollapsed] = useState(false)
   return (
-    <div className="page-shell">
-      <LeftNav />
+    <div className={`page-shell ${collapsed ? 'nav-collapsed' : ''}`}>
+      <LeftNav collapsed={collapsed} setCollapsed={setCollapsed} />
       <div className="content-wrap">
         <Outlet />
       </div>

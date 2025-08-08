@@ -1,10 +1,10 @@
 :root {
   --bg: #0b0b0f;
   --panel: #101018;
-  --text: #e9e9ef;
-  --muted: #8e8ea0;
-  --accent: #a7f3d0; /* mint */
-  --accent-2: #a5b4fc; /* periwinkle */
+  --text: #fff7d1; /* warm near-white */
+  --muted: #bcae7a; /* muted gold */
+  --accent: #f5d565; /* golden */
+  --accent-2: #eab308; /* amber */
   --danger: #ff6b6b;
 
   font-family: "Space Grotesk", system-ui, -apple-system, Segoe UI, Roboto,
@@ -38,9 +38,9 @@ body::before {
   position: fixed;
   inset: -25%;
   background:
-    radial-gradient(600px 400px at 10% 10%, rgba(167, 243, 208, 0.15), transparent 60%),
-    radial-gradient(600px 400px at 90% 20%, rgba(165, 180, 252, 0.18), transparent 60%),
-    conic-gradient(from 0deg at 50% 50%, rgba(34, 211, 238, 0.12), rgba(99, 102, 241, 0.12), rgba(167, 243, 208, 0.12), rgba(34, 211, 238, 0.12));
+    radial-gradient(600px 400px at 10% 10%, rgba(245, 213, 101, 0.18), transparent 60%),
+    radial-gradient(600px 400px at 90% 20%, rgba(234, 179, 8, 0.20), transparent 60%),
+    conic-gradient(from 0deg at 50% 50%, rgba(245, 213, 101, 0.12), rgba(234, 179, 8, 0.12), rgba(255, 255, 255, 0.06), rgba(245, 213, 101, 0.12));
   filter: blur(60px) saturate(120%);
   z-index: -1;
   pointer-events: none;
@@ -59,8 +59,11 @@ a {
 
 .page-shell {
   display: grid;
-  grid-template-columns: 260px 1fr;
+  grid-template-columns: 220px 1fr;
   min-height: 100vh;
+}
+.page-shell.nav-collapsed {
+  grid-template-columns: 88px 1fr;
 }
 
 .floating-nav {
@@ -69,7 +72,7 @@ a {
   align-self: start;
   height: calc(100vh - 48px);
   margin: 24px;
-  padding: 16px;
+  padding: 12px;
   background: rgba(16, 16, 24, 0.6);
   backdrop-filter: blur(10px);
   border: 1px solid rgba(255, 255, 255, 0.06);
@@ -79,6 +82,10 @@ a {
   justify-content: space-between;
   gap: 12px;
   z-index: 10;
+}
+.floating-nav.collapsed {
+  width: 64px;
+  padding: 8px;
 }
 
 .brand {
@@ -116,6 +123,24 @@ a {
   color: #0a0a0f;
   background: linear-gradient(135deg, var(--accent), var(--accent-2));
 }
+.nav-item .icon {
+  width: 18px;
+  text-align: center;
+  margin-right: 10px;
+}
+.floating-nav.collapsed .nav-item .label { display: none; }
+.floating-nav.collapsed .brand { padding: 8px 0; }
+.collapse-btn {
+  width: 100%;
+  margin: 6px 0 10px;
+  height: 36px;
+  border-radius: 10px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  background: #0f0f14;
+  color: var(--muted);
+  cursor: pointer;
+}
+.floating-nav.collapsed .collapse-btn { font-size: 14px; }
 
 .content-wrap {
   padding: 36px;
@@ -233,9 +258,7 @@ a {
 }
 
 @media (max-width: 960px) {
-  .page-shell {
-    grid-template-columns: 220px 1fr;
-  }
+  .page-shell { grid-template-columns: 88px 1fr; }
   .content-wrap {
     padding: 24px;
   }
