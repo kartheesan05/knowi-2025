@@ -98,8 +98,8 @@ a {
 /* Keep nav fixed relative to viewport height without scrolling with content */
 .left-rail { position: sticky; top: 0; align-self: start; height: 100vh; }
 .brand-bubble { top: 24px; z-index: 250; }
-.nav-slot { display: grid; align-content: center; justify-items: start; min-height: calc(100vh - 160px); padding-left: 4px; }
-.floating-nav { /* centered via .nav-slot; no sticky top */ transform: translateZ(0); }
+.nav-slot { display: grid; align-content: center; justify-items: start; min-height: calc(100vh - 160px); padding-left: 4px; pointer-events: none; }
+.floating-nav { /* centered via .nav-slot; no sticky top */ transform: translateZ(0); pointer-events: auto; }
 .nav-inner { position: relative; }
 .nav-highlight {
   position: absolute;
