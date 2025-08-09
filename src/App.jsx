@@ -10,7 +10,9 @@ import './index.css'
 
 function BrandBubble() {
   return (
-    <a className="brand-bubble" href="/">KNOW-I</a>
+    <a className="brand-bubble" href="/" aria-label="KNOW-I home">
+      <img src="/logo-kowi.png" alt="KNOW-I logo" />
+    </a>
   )
 }
 

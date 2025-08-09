@@ -128,21 +128,26 @@ a {
   font-family: "Sora", system-ui;
   font-weight: 800;
   letter-spacing: -0.02em;
-  font-size: 18px;
-  line-height: 1;
-  padding: 12px 12px;
+  font-size: 0; /* image only */
+  line-height: 0;
+  padding: 8px;
   border-radius: 16px;
-  background: linear-gradient(135deg, var(--accent), var(--accent-2));
-  color: #0a0a0f;
-  border: 1px solid transparent;
+  background: rgba(16, 16, 24, 0.6); /* match navbar background */
+  color: var(--text);
+  border: 1px solid rgba(255, 255, 255, 0.06);
   text-decoration: none;
-  box-shadow: 0 10px 30px rgba(234, 179, 8, 0.25);
+  box-shadow: none;
   transition: transform 250ms ease, box-shadow 250ms ease;
-  width: 232px; /* independent from nav width */
+  width: 100px; /* compact to align with nav */
+}
+.brand-bubble img {
+  display: block;
+  width: 100%;
+  height: auto;
 }
 .brand-bubble:hover {
   transform: translateY(-2px) scale(1.02);
-  box-shadow: 0 16px 40px rgba(234, 179, 8, 0.35);
+  box-shadow: none;
 }
 
 .nav-item {
