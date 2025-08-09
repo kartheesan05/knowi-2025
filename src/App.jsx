@@ -8,6 +8,16 @@ import nora from './assets/team/nora.svg'
 import you from './assets/team/you.svg'
 import './index.css'
 
+// Reusable nav config
+const PRIMARY_NAV_ITEMS = [
+  { type: 'link', to: '/', label: 'Home', icon: '🏠', end: true },
+  { type: 'link', to: '/team', label: 'Team', icon: '👥' },
+  { type: 'link', to: '/events', label: 'Events', icon: '📅' },
+]
+const SECONDARY_NAV_ITEMS = [
+  { type: 'a', href: '#resources', label: 'Resources', icon: '📚' },
+]
+
 function BrandBubble() {
   return (
     <a className="brand-bubble" href="/" aria-label="KNOW-I home">
@@ -23,14 +33,8 @@ function LeftNav() {
   const [hoverTop, setHoverTop] = useState(null)
   const [hoverHeight, setHoverHeight] = useState(0)
 
-  const primaryItems = [
-    { type: 'link', to: '/', label: 'Home', icon: '🏠', end: true },
-    { type: 'link', to: '/team', label: 'Team', icon: '👥' },
-    { type: 'link', to: '/events', label: 'Events', icon: '📅' },
-  ]
-  const secondaryItems = [
-    { type: 'a', href: '#resources', label: 'Resources', icon: '📚' },
-  ]
+  const primaryItems = PRIMARY_NAV_ITEMS
+  const secondaryItems = SECONDARY_NAV_ITEMS
 
   const updateHighlightToActive = () => {
     const activeIndex = primaryItems.findIndex((item) => {
@@ -97,6 +101,74 @@ function LeftNav() {
   )
 }
 
+function MobileNav() {
+  const location = useLocation()
+  const [isOpen, setIsOpen] = useState(false)
+
+  useEffect(() => {
+    // Auto-close on route change
+    setIsOpen(false)
+  }, [location.pathname])
+
+  useEffect(() => {
+    const onKey = (e) => {
+      if (e.key === 'Escape') setIsOpen(false)
+    }
+    window.addEventListener('keydown', onKey)
+    return () => window.removeEventListener('keydown', onKey)
+  }, [])
+
+  const close = () => setIsOpen(false)
+  const toggle = () => setIsOpen((v) => !v)
+
+  return (
+    <div className={`mobile-nav ${isOpen ? 'open' : ''}`} aria-hidden={!isOpen}>
+      {isOpen && <div className="mobile-nav-overlay" onClick={close} />}
+
+      <div className="mobile-nav-tray" role="menu" aria-label="Mobile navigation">
+        <div className="emoji-row">
+          {PRIMARY_NAV_ITEMS.map((item) => (
+            <NavLink
+              key={item.label}
+              to={item.to}
+              end={item.end}
+              className={({ isActive }) => `emoji-item ${isActive ? 'active' : ''}`}
+              role="menuitem"
+              onClick={close}
+            >
+              <span aria-hidden>{item.icon}</span>
+            </NavLink>
+          ))}
+          {SECONDARY_NAV_ITEMS.map((item) => (
+            <a
+              key={item.label}
+              href={item.href}
+              className="emoji-item"
+              role="menuitem"
+              onClick={close}
+            >
+              <span aria-hidden>{item.icon}</span>
+            </a>
+          ))}
+        </div>
+      </div>
+
+      <button
+        type="button"
+        className={`mobile-menu-fab ${isOpen ? 'open' : ''}`}
+        aria-label={isOpen ? 'Close menu' : 'Open menu'}
+        onClick={toggle}
+      >
+        <span className="burger" aria-hidden>
+          <i></i>
+          <i></i>
+          <i></i>
+        </span>
+      </button>
+    </div>
+  )
+}
+
 function Shell() {
   return (
     <div className="page-shell">
@@ -109,6 +181,8 @@ function Shell() {
       <div className="content-wrap">
         <Outlet />
       </div>
+      {/* Mobile bottom nav */}
+      <MobileNav />
     </div>
   )
 }
