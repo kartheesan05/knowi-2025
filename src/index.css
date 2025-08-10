@@ -69,6 +69,7 @@ a {
   grid-template-columns: 88px 1fr;
   min-height: 100vh;
 }
+.page-shell, .content-wrap { min-width: 0; }
 .left-rail {
   display: grid;
   grid-template-rows: auto 1fr;
@@ -206,6 +207,7 @@ a {
 
 .content-wrap {
   padding: 36px;
+  overflow-x: clip; /* prevent page-level horizontal scroll */
 }
 
 .hero {
@@ -296,6 +298,12 @@ a {
   gap: 16px;
 }
 
+.grid-2 {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 16px;
+}
+
 .team-card,
 .event-card {
   background: linear-gradient(180deg, rgba(255, 255, 255, 0.04), rgba(0, 0, 0, 0));
@@ -306,6 +314,22 @@ a {
   transition: transform 200ms ease;
 }
 .event-card:hover { transform: translateY(-6px); }
+
+.event-card .thumb {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  border-radius: 10px;
+  overflow: hidden;
+  background: linear-gradient(135deg, var(--accent), var(--accent-2));
+  margin-bottom: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+.event-card .thumb img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
 
 @keyframes floaty {
   0%, 100% { transform: translateY(0); }
@@ -328,6 +352,7 @@ a {
     grid-template-columns: 1fr;
   }
   .grid-3,
+  .grid-2,
   .k-cards {
     grid-template-columns: 1fr;
   }
@@ -508,6 +533,21 @@ a {
   box-shadow: 0 14px 30px rgba(0, 0, 0, 0.35), 0 2px 0 rgba(0, 0, 0, 0.08) inset;
   transform-origin: center top;
 }
+/* Home page specific member card without shadow */
+.home-team-card.polaroid {
+  background: #ffffff;
+  border: none;
+  border-radius: 10px;
+  padding: 10px 10px 14px;
+  color: #0a0a0f;
+  box-shadow: none;
+  transform-origin: center top;
+}
+/* Smooth transform animations to avoid jitter */
+.polaroid {
+  transition: transform 280ms cubic-bezier(.22,.8,.24,1);
+  will-change: transform;
+}
 .polaroid .photo {
   width: 100%;
   aspect-ratio: 4/3;
@@ -534,6 +574,15 @@ a {
   color: #5b6170;
 }
 
+/* Ensure polaroid cards don't exceed their column width */
+.team-card.polaroid,
+.home-team-card.polaroid,
+.see-all-card.polaroid {
+  width: 100%;
+  max-width: 100%;
+  min-width: 0;
+}
+
 /* playful tilt */
 .grid-3 .polaroid:nth-child(3n+1) { transform: rotate(-2deg); }
 .grid-3 .polaroid:nth-child(3n+2) { transform: rotate(1.5deg); }
@@ -548,4 +597,87 @@ a {
   color: var(--muted);
   text-transform: uppercase;
   letter-spacing: 0.1em;
+}
+
+/* Horizontal team scroller matching polaroid tilt/hover */
+.team-scroller {
+  display: grid;
+  grid-auto-flow: column;
+  grid-auto-columns: clamp(220px, 28vw, 260px);
+  gap: 14px;
+  /* Allow horizontal scrolling while keeping vertical overflow visible for tilted cards */
+  overflow-x: auto;
+  overflow-y: visible;
+  /* Extra top padding so rotated corners aren't visually clipped */
+  padding: 14px 2px 12px;
+  margin-top: 8px;
+  scrollbar-width: none;
+  scroll-snap-type: x mandatory;
+  -webkit-overflow-scrolling: touch;
+  width: 100%;
+  max-width: 100%;
+  min-width: 0; /* do not expand parent */
+  -ms-overflow-style: none; /* IE/Edge */
+  transform: translateZ(0);
+}
+.team-scroller > .polaroid,
+.team-scroller > .see-all-card {
+  scroll-snap-align: start;
+  min-width: 0;
+  max-width: 100%;
+}
+.team-scroller > .polaroid { backface-visibility: hidden; }
+.team-scroller::-webkit-scrollbar { width: 0 !important; height: 0 !important; display: none; background: transparent; }
+.team-scroller::-webkit-scrollbar-track { background: transparent; }
+.team-scroller::-webkit-scrollbar-thumb { background: transparent; }
+
+/* Hard cap any accidental overflow from children */
+.team-scroller > * { min-width: 0; }
+
+/* Apply playful tilt pattern in horizontal list */
+.team-scroller > .polaroid:nth-child(3n+1) { transform: rotate(-2deg); }
+.team-scroller > .polaroid:nth-child(3n+2) { transform: rotate(1.5deg); }
+.team-scroller > .polaroid:nth-child(3n) { transform: rotate(-0.5deg); }
+.team-scroller > .polaroid:hover { transform: rotate(0deg) translateY(-4px); }
+
+/* See all card styled like a polaroid with center text */
+.see-all-card {
+  display: grid;
+  place-items: center;
+  background: #ffffff;
+  color: #0a0a0f;
+  border: none;
+  border-radius: 10px;
+  padding: 10px 10px 14px;
+  font-weight: 800;
+  font-family: "Sora", system-ui;
+  box-shadow: none;
+  text-align: center;
+}
+.see-all-card:hover { transform: translateY(-6px); }
+/* small supportive text for see-all card */
+.see-all-card .title { font-weight: 800; }
+.see-all-card .sub { margin-top: 4px; font-size: 12px; color: #5b6170; }
+
+/* Moving arrow indicator below team scroller */
+.team-scroll-indicator {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 6px;
+  margin-top: 8px;
+  color: var(--muted);
+  user-select: none;
+  padding-right: 40px;
+}
+.team-scroll-indicator .arrow {
+  display: inline-block;
+  animation: arrowMove 1.2s ease-in-out infinite;
+  will-change: transform, opacity;
+}
+.team-scroll-indicator .arrow:nth-child(2) { animation-delay: 0.2s; }
+.team-scroll-indicator .arrow:nth-child(3) { animation-delay: 0.4s; }
+@keyframes arrowMove {
+  0%, 100% { transform: translateX(0); opacity: 0.5; }
+  50% { transform: translateX(10px); opacity: 1; }
 }

@@ -235,6 +235,63 @@ function HomePage() {
           <p>Contribute to club repos and get mentored code reviews.</p>
         </div>
       </div>
+
+      <div className="section-title">Upcoming events</div>
+      <div className="grid-2">
+        <div className="event-card">
+          <div className="thumb">
+            <img src="/2.png" alt="Kickoff: Build an Agent in 90 Minutes" />
+          </div>
+          <h4>Kickoff: Build an Agent in 90 Minutes</h4>
+          <p className="muted">Sep 14, 7pm</p>
+          <p style={{ marginTop: 8 }}>Hands‑on session. Bring a laptop. We ship together.</p>
+        </div>
+        <div className="event-card">
+          <div className="thumb">
+            <img src="/logo-kowi.png" alt="Vision Night: Diffusion to Video" />
+          </div>
+          <h4>Vision Night: Diffusion to Video</h4>
+          <p className="muted">Sep 28, 6pm</p>
+          <p style={{ marginTop: 8 }}>Short talks + demo hour. Submit your demo!</p>
+        </div>
+      </div>
+      <div className="cta-row" style={{ marginTop: 12 }}>
+        <NavLink to="/events" className="btn">See all events</NavLink>
+      </div>
+
+      <div className="section-title">Team</div>
+      <div className="team-scroller" aria-label="Leadership team">
+        {[
+          { name: 'Ari Mehta', role: 'President · Research Lead', img: ari },
+          { name: 'Jordan Lee', role: 'Projects Lead', img: jordan },
+          { name: 'Samira Gupta', role: 'Community & Ops', img: samira },
+          { name: 'Diego Santos', role: 'Infra & MLE', img: diego },
+          { name: 'Nora Park', role: 'Design & Content', img: nora },
+          { name: 'You?', role: 'Core Team · Apply', img: you },
+        ].map((m, idx) => (
+          <div key={`${m.name}-${idx}`} className="home-team-card polaroid">
+            <div className="photo">
+              <img src={m.img} alt={m.name} />
+            </div>
+            <div className="caption">
+              <h4>{m.name}</h4>
+              <p className="sub">{m.role}</p>
+            </div>
+          </div>
+        ))}
+
+        <NavLink to="/team" className="see-all-card polaroid" aria-label="See all team members">
+          <div>
+            <div className="title">See all →</div>
+            <div className="sub">Meet the full crew!</div>
+          </div>
+        </NavLink>
+      </div>
+      <div className="team-scroll-indicator" aria-hidden>
+        <span className="arrow">→</span>
+        <span className="arrow">→</span>
+        <span className="arrow">→</span>
+      </div>
     </div>
   )
 }
