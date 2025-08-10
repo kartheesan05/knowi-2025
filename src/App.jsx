@@ -6,7 +6,6 @@ import samira from './assets/team/samira.svg'
 import diego from './assets/team/diego.svg'
 import nora from './assets/team/nora.svg'
 import you from './assets/team/you.svg'
-import './index.css'
 
 // Reusable nav config
 const PRIMARY_NAV_ITEMS = [
