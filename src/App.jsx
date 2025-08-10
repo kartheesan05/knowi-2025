@@ -192,7 +192,7 @@ function HomePage() {
     <div>
       <section className="hero">
         <div>
-          <h1>KNOW-I: Machine Learning for Builders</h1>
+          <h1><span className="brand-gradient">KNOW-I:</span> Machine Learning for Builders</h1>
           <p>
             A Gen‑Z ML club hosting hands‑on sessions, hack nights, and talks by real
             practitioners. Ship projects, learn fast, and vibe with people who build.

@@ -226,6 +226,15 @@ a {
   margin: 0 0 8px 0;
 }
 
+/* Gradient text for brand in hero heading to match primary button */
+.hero .brand-gradient {
+  background: linear-gradient(135deg, var(--accent), var(--accent-2));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  -webkit-text-fill-color: transparent;
+}
+
 .hero p {
   color: var(--muted);
   font-size: 18px;
