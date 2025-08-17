@@ -425,6 +425,8 @@ a {
   border: 1px solid rgba(255, 255, 255, 0.06);
   border-radius: 16px;
   padding: 16px;
+  display: flex;
+  flex-direction: column;
   transform: translateY(0);
   transition: transform 200ms ease;
 }
@@ -460,6 +462,12 @@ a {
 .team-card h4,
 .event-card h4 {
   margin: 0 0 6px 0;
+}
+
+/* Keep the primary action pinned to bottom-left in event cards */
+.event-card .btn {
+  margin-top: auto;
+  align-self: flex-start;
 }
 .muted {
   color: var(--muted);

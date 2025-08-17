@@ -70,7 +70,6 @@ export default function HomePage() {
           <NavLink
             to="/events/publish-it-right"
             className="btn"
-            style={{ marginTop: 12, display: "inline-block" }}
           >
             Learn more
           </NavLink>
@@ -89,7 +88,6 @@ export default function HomePage() {
           <NavLink
             to="/events/neuronexus"
             className="btn"
-            style={{ marginTop: 12, display: "inline-block" }}
           >
             Learn more
           </NavLink>

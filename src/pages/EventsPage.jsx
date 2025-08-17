@@ -9,18 +9,17 @@ export default function EventsPage() {
         A look back at the milestones and memories we’ve created together.
       </p>
       <div className="grid-3" style={{ marginTop: 24 }}>
-        {EVENTS.map((e) => (
+        {EVENTS.filter((e) => e.type === "completed").map((e) => (
           <div key={e.title} className="event-card">
             <div className="thumb">
               <img src={e.thumb} alt={e.title} />
             </div>
             <h4>{e.title}</h4>
             <p className="muted">{e.date}</p>
-            <p style={{ marginTop: 8 }}>{e.desc}</p>
+            <p style={{ marginTop: 8 }}>{e.shortDesc}</p>
             <NavLink
               to={`/events/${e.slug}`}
               className="btn"
-              style={{ marginTop: 12, display: "inline-block" }}
             >
               Learn more
             </NavLink>

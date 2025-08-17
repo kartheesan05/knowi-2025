@@ -34,28 +34,32 @@ export default function EventDetailPage() {
       <h1 style={{ margin: 0 }}>{event.title}</h1>
       <p className="muted">{event.date}</p>
       <p style={{ marginTop: 8 }}>{event.desc}</p>
-      <div className="section-title" style={{ marginTop: 24 }}>Gallery</div>
-      <div className="carousel">
-        <div className="carousel-track" ref={trackRef} aria-label={`${event.title} gallery`}>
-          {event.gallery.map((src, idx) => (
-            <div className="carousel-item" key={`${event.slug}-img-${idx}`}>
-              <img src={src} alt={`${event.title} photo ${idx + 1}`} />
+      {event.type === "completed" && (
+        <>
+          <div className="section-title" style={{ marginTop: 24 }}>Gallery</div>
+          <div className="carousel">
+            <div className="carousel-track" ref={trackRef} aria-label={`${event.title} gallery`}>
+              {event.gallery.map((src, idx) => (
+                <div className="carousel-item" key={`${event.slug}-img-${idx}`}>
+                  <img src={src} alt={`${event.title} photo ${idx + 1}`} />
+                </div>
+              ))}
             </div>
-          ))}
-        </div>
-        <button type="button" className="carousel-arrow left" aria-label="Previous" onClick={scrollByItem(-1)}>
-          ←
-        </button>
-        <button type="button" className="carousel-arrow right" aria-label="Next" onClick={scrollByItem(1)}>
-          →
-        </button>
-      </div>
+            <button type="button" className="carousel-arrow left" aria-label="Previous" onClick={scrollByItem(-1)}>
+              ←
+            </button>
+            <button type="button" className="carousel-arrow right" aria-label="Next" onClick={scrollByItem(1)}>
+              →
+            </button>
+          </div>
 
-      <div className="cta-row" style={{ marginTop: 16 }}>
-        <a className="btn primary" href={event.reportUrl}>
-          View report
-        </a>
-      </div>
+          <div className="cta-row" style={{ marginTop: 16 }}>
+            <a className="btn primary" href={event.reportUrl}>
+              View report
+            </a>
+          </div>
+        </>
+      )}
     </div>
   );
 }
