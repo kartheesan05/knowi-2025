@@ -107,7 +107,8 @@ export default function HomePage() {
           { name: "Samira Gupta", role: "Community & Ops", img: "samira.svg" },
           { name: "Diego Santos", role: "Infra & MLE", img: "diego.svg" },
           { name: "Nora Park", role: "Design & Content", img: "nora.svg" },
-          { name: "You?", role: "Core Team · Apply", img: "you.svg" },
+          { name: "Danish", role: "Core Team · Apply", img: "samira.svg" },
+          { name: "Danniel", role: "Core Team · Apply", img: "jordan.svg" },
         ].map((m, idx) => (
           <div key={`${m.name}-${idx}`} className="home-team-card polaroid">
             <div className="photo">

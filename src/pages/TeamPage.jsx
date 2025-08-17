@@ -1,35 +1,21 @@
+import { useState } from "react";
 import GithubIcon from "../components/icons/GithubIcon";
 import LinkedInIcon from "../components/icons/LinkedInIcon";
+import { TEAM_MEMBERS } from "../data/team";
+import ConfettiBurst from "../components/Confetti";
 
 export default function TeamPage() {
-  const leadership = [
-    {
-      name: "Arunima Muralitharan",
-      role: "President",
-      img: "arunima.jpeg",
-      linkedin:
-        "https://www.linkedin.com/in/aru04/",
-      github: "https://github.com/arunimamuralitharan",
-    },
-    {
-      name: "Jordan Lee",
-      role: "Projects Lead",
-      img: "jordan.svg",
-      linkedin:
-        "https://www.linkedin.com/in/jordan-lee-00000000000000000000000000000000/",
-    },
-    { name: "Samira Gupta", role: "Community & Ops", img: "samira.svg" },
-    { name: "Diego Santos", role: "Infra & MLE", img: "diego.svg" },
-    { name: "Nora Park", role: "Design & Content", img: "nora.svg" },
-    { name: "You?", role: "Core Team · Apply", img: "you.svg" },
-  ];
-  const avatarCycle = ["ari.svg", "jordan.svg", "samira.svg", "diego.svg", "nora.svg", "you.svg"];
-  const fillers = Array.from({ length: 29 }, (_, i) => ({
-    name: `Member ${String(i + 1).padStart(2, "0")}`,
-    role: "Member",
-    img: avatarCycle[i % avatarCycle.length],
-  }));
-  const members = [...leadership, ...fillers];
+  const [confettiActive, setConfettiActive] = useState(false);
+
+  const shouldCelebrate = (role) => {
+    return role === "Web Lead" || role === "President";
+  };
+
+  const handleCardClick = (member) => {
+    if (shouldCelebrate(member.role)) {
+      setConfettiActive(true);
+    }
+  };
   return (
     <div>
       <h1 style={{ margin: 0 }}>Our Team</h1>
@@ -37,8 +23,14 @@ export default function TeamPage() {
         Meet the incredible team that works to make Know-I thrive.
       </p>
       <div className="grid-3" style={{ marginTop: 24 }}>
-        {members.map((m, idx) => (
-          <div key={`${m.name}-${idx}`} className="team-card polaroid">
+        {TEAM_MEMBERS.map((m, idx) => (
+          <div
+            key={`${m.name}-${idx}`}
+            className="team-card polaroid"
+            onClick={() => handleCardClick(m)}
+            style={{ cursor: shouldCelebrate(m.role) ? "pointer" : undefined }}
+            aria-label={`Open ${m.name} card`}
+          >
             <div className="photo">
               <img src={`/images/team/${m.img}`} alt={m.name} />
             </div>
@@ -80,6 +72,12 @@ export default function TeamPage() {
           </div>
         ))}
       </div>
+      <ConfettiBurst
+        active={confettiActive}
+        duration={2500}
+        numberOfPieces={280}
+        onComplete={() => setConfettiActive(false)}
+      />
     </div>
   );
 }
