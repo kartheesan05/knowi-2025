@@ -1,10 +1,4 @@
 import { NavLink } from "react-router-dom";
-import ari from "../assets/team/ari.svg";
-import jordan from "../assets/team/jordan.svg";
-import samira from "../assets/team/samira.svg";
-import diego from "../assets/team/diego.svg";
-import nora from "../assets/team/nora.svg";
-import you from "../assets/team/you.svg";
 
 export default function HomePage() {
   return (
@@ -12,88 +6,114 @@ export default function HomePage() {
       <section className="hero">
         <div>
           <h1>
-            <span className="brand-gradient">KNOW-I:</span> Machine Learning for Builders
+            <span className="brand-gradient">KNOW-I:</span> Innovating Ideas,
+            Inspiring Intelligence
           </h1>
           <p>
-            A Gen‑Z ML club hosting hands‑on sessions, hack nights, and talks by real practitioners. Ship projects, learn fast, and vibe with people who build.
+            The AI and ML club of the Department of Computer Science and
+            Engineering of SVCE fosters innovation, collaboration, and learning
+            through projects, hackathons, and research.
           </p>
           <div className="cta-row">
-            <a className="btn primary" href="#join">Join the waitlist</a>
-            <a className="btn" href="#discord">Discord</a>
+            <a className="btn primary" href="#events">
+              See Our Events
+            </a>
+            <a className="btn" href="/team">
+              Meet The Team
+            </a>
           </div>
         </div>
         <div>
           <div className="k-cards">
             <div className="k-card">
               <h3>Workshops</h3>
-              <p>Weekly deep-dives: vision, LLMs, agents, evals, infra.</p>
+              <p>Deep-dives about LLMs, agents, and many more.</p>
             </div>
             <div className="k-card">
               <h3>Projects</h3>
-              <p>Team up and ship showcases. Less theory, more demos.</p>
+              <p>Guiding Projects, Growing Potential</p>
             </div>
             <div className="k-card">
               <h3>Community</h3>
-              <p>Find cofounders, research buddies, and late‑night builders.</p>
+              <p>Find peers, research buddies, and late‑night builders.</p>
             </div>
           </div>
         </div>
       </section>
 
-      <div className="section-title">What we do</div>
-      <div className="grid-3">
-        <div className="k-card">
-          <h3>Speaker Series</h3>
-          <p>Hear from folks shipping SOTA into production.</p>
-        </div>
-        <div className="k-card">
-          <h3>Rapid Demos</h3>
-          <p>5‑minute lightning demos. No slides, only builds.</p>
-        </div>
-        <div className="k-card">
-          <h3>Open Source</h3>
-          <p>Contribute to club repos and get mentored code reviews.</p>
-        </div>
-      </div>
+      <div className="section-title">About Us</div>
+      <p style={{ fontSize: "1.2rem" }}>
+        Know-I is the Artificial Intelligence and Machine Learning club of the
+        Department of Computer Science and Engineering at Sri Venkateswara
+        College of Engineering (SVCE). We aim to foster innovation, research,
+        and collaboration by engaging students in projects, competitions, and
+        mentorship programs. Through hackathons, datathons, workshops, and
+        conferences, we provide hands-on learning opportunities that bridge
+        academics with real-world applications. Our initiatives connect students
+        with experts, guiding them to explore emerging technologies and
+        impactful solutions. At Know-I, we believe in empowering young minds to
+        transform ideas into innovations.
+      </p>
 
-      <div className="section-title">Upcoming events</div>
+      <div className="section-title" id="events">Upcoming Events</div>
       <div className="grid-2">
         <div className="event-card">
           <div className="thumb">
-            <img src="/2.png" alt="Kickoff: Build an Agent in 90 Minutes" />
+            <img src="/2.png" alt="Know-I: AI and ML Club" />
           </div>
-          <h4>Kickoff: Build an Agent in 90 Minutes</h4>
-          <p className="muted">Sep 14, 7pm</p>
-          <p style={{ marginTop: 8 }}>Hands‑on session. Bring a laptop. We ship together.</p>
-          <NavLink to="/events/kickoff-build-an-agent-in-90-minutes" className="btn" style={{ marginTop: 12, display: "inline-block" }}>Learn more</NavLink>
+          <h4>Publish It Right</h4>
+          <p className="muted">Aug 19, 7pm</p>
+          <p style={{ marginTop: 8 }}>
+            Connecting students with mentors to guide them through the journey
+            of writing and publishing impactful research papers.
+          </p>
+          <NavLink
+            to="/events/publish-it-right"
+            className="btn"
+            style={{ marginTop: 12, display: "inline-block" }}
+          >
+            Learn more
+          </NavLink>
         </div>
         <div className="event-card">
           <div className="thumb">
-            <img src="/logo-kowi.png" alt="Vision Night: Diffusion to Video" />
+            <img src="/2.png" alt="Know-I: AI and ML Club" />
           </div>
-          <h4>Vision Night: Diffusion to Video</h4>
-          <p className="muted">Sep 28, 6pm</p>
-          <p style={{ marginTop: 8 }}>Short talks + demo hour. Submit your demo!</p>
-          <NavLink to="/events/vision-night-diffusion-to-video" className="btn" style={{ marginTop: 12, display: "inline-block" }}>Learn more</NavLink>
+          <h4>NeuroNexus</h4>
+          <p className="muted">TBD</p>
+          <p style={{ marginTop: 8 }}>
+            24-hour hackathon where participants tackle real-world machine
+            learning problem statements, pushing the boundaries of innovation
+            and practical AI solutions.
+          </p>
+          <NavLink
+            to="/events/neuronexus"
+            className="btn"
+            style={{ marginTop: 12, display: "inline-block" }}
+          >
+            Learn more
+          </NavLink>
         </div>
       </div>
       <div className="cta-row" style={{ marginTop: 12 }}>
-        <NavLink to="/events" className="btn">See all events</NavLink>
+        <NavLink to="/events" className="btn primary">
+          See Past Events
+        </NavLink>
       </div>
 
-      <div className="section-title">Team</div>
+      <div className="section-title">Our Team</div>
       <div className="team-scroller" aria-label="Leadership team">
         {[
-          { name: "Ari Mehta", role: "President · Research Lead", img: ari },
-          { name: "Jordan Lee", role: "Projects Lead", img: jordan },
-          { name: "Samira Gupta", role: "Community & Ops", img: samira },
-          { name: "Diego Santos", role: "Infra & MLE", img: diego },
-          { name: "Nora Park", role: "Design & Content", img: nora },
-          { name: "You?", role: "Core Team · Apply", img: you },
+          { name: "Ari Mehta", role: "President · Research Lead", img: "ari.svg" },
+          { name: "Jordan Lee", role: "Projects Lead", img: "jordan.svg" },
+          { name: "Samira Gupta", role: "Community & Ops", img: "samira.svg" },
+          { name: "Diego Santos", role: "Infra & MLE", img: "diego.svg" },
+          { name: "Nora Park", role: "Design & Content", img: "nora.svg" },
+          { name: "You?", role: "Core Team · Apply", img: "you.svg" },
         ].map((m, idx) => (
           <div key={`${m.name}-${idx}`} className="home-team-card polaroid">
             <div className="photo">
-              <img src={m.img} alt={m.name} />
+              <img src={`/images/team/${m.img}`} alt={m.name} />
             </div>
             <div className="caption">
               <h4>{m.name}</h4>
@@ -102,7 +122,11 @@ export default function HomePage() {
           </div>
         ))}
 
-        <NavLink to="/team" className="see-all-card polaroid" aria-label="See all team members">
+        <NavLink
+          to="/team"
+          className="see-all-card polaroid"
+          aria-label="See all team members"
+        >
           <div>
             <div className="title">See all →</div>
             <div className="sub">Meet the full crew!</div>
@@ -117,5 +141,3 @@ export default function HomePage() {
     </div>
   );
 }
-
-
