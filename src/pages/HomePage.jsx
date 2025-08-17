@@ -62,7 +62,7 @@ export default function HomePage() {
             <img src="/2.png" alt="Know-I: AI and ML Club" />
           </div>
           <h4>Publish It Right</h4>
-          <p className="muted">Aug 19, 7pm</p>
+          <p className="muted">19 August 2025</p>
           <p style={{ marginTop: 8 }}>
             Connecting students with mentors to guide them through the journey
             of writing and publishing impactful research papers.

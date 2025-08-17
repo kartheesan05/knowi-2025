@@ -5,7 +5,7 @@ export const PRIMARY_NAV_ITEMS = [
 ];
 
 export const SECONDARY_NAV_ITEMS = [
-  { type: "a", href: "#resources", label: "Resources", icon: "📚" },
+  { type: "a", href: "#footer", label: "Resources", icon: "📚" },
 ];
 
 
