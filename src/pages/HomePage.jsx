@@ -102,7 +102,7 @@ export default function HomePage() {
       <div className="section-title">Our Team</div>
       <div className="team-scroller" aria-label="Leadership team">
         {[
-          { name: "Ari Mehta", role: "President · Research Lead", img: "ari.svg" },
+          { name: "Arunima Muralitharan", role: "President", img: "arunima.jpeg" },
           { name: "Jordan Lee", role: "Projects Lead", img: "jordan.svg" },
           { name: "Samira Gupta", role: "Community & Ops", img: "samira.svg" },
           { name: "Diego Santos", role: "Infra & MLE", img: "diego.svg" },
