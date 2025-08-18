@@ -90,7 +90,7 @@ export const EVENTS = [
       "/images/events/analytics-showdown/4.jpg",
       "/images/events/analytics-showdown/5.jpg",
     ],
-    reportUrl: "/reports/analytics-showdown3.0-2024-2025",
+    reportUrl: "/reports/analytics-showdown3.0-2024-2025.pdf",
     type: "completed",
   },
   {

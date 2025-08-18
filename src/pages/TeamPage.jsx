@@ -20,7 +20,7 @@ export default function TeamPage() {
     <div>
       <h1 style={{ margin: 0 }}>Our Team</h1>
       <p className="muted">
-        Meet the incredible team that works to make Know-I thrive.
+        {"Meet the incredible team that works to make Know-I thrive ;)"}
       </p>
       <div className="grid-3" style={{ marginTop: 24 }}>
         {TEAM_MEMBERS.map((m, idx) => (

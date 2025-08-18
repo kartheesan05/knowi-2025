@@ -8,10 +8,11 @@ export const TEAM_MEMBERS = [
     github: "https://github.com/arunimamuralitharan",
   },
   {
-    name: "Adithi Kalyanaraman", 
+    name: "Adithi Kalyanaraman",
     role: "Vice President - Planning",
     img: "adithi.jpg",
-    imgUrl: "https://drive.google.com/open?id=1Js_5wucOt1RKXo4qb51X3WRhUJhxm",
+    imgUrl:
+      "https://drive.google.com/open?id=1D-q4Hy5RPxnqrViBNjXHJZLOIxEOTC2F",
     linkedin: "https://www.linkedin.com/in/adithikalyanaraman/",
     github: "https://github.com/adithikalyan106",
   },
@@ -19,28 +20,32 @@ export const TEAM_MEMBERS = [
     name: "Ajay A",
     role: "Vice President - Research",
     img: "ajay.jpg",
-    imgUrl: "https://drive.google.com/open?id=1Ks_5wucOt1RKXo4qb51X3WRhUJhxm",
+    imgUrl:
+      "https://drive.google.com/open?id=1bk0E7DIuvebBFb_cEIisO4jaZURhHv-a",
     linkedin: "https://www.linkedin.com/in/ajay-drew/",
   },
   {
     name: "Kirthana V",
-    role: "Treasurer", 
+    role: "Treasurer",
     img: "kirthana.jpg",
-    imgUrl: "https://drive.google.com/open?id=1Ls_5wucOt1RKXo4qb51X3WRhUJhxm",
+    imgUrl:
+      "https://drive.google.com/open?id=1EZpBLT2BpKAryXrLu5vyDsAOb1gaS3BH",
     linkedin: "https://www.linkedin.com/in/kirthana-v-b9985b291/",
   },
   {
     name: "Clarinda Susan",
     role: "Secretary",
     img: "clarinda.jpg",
-    imgUrl: "https://drive.google.com/open?id=1Ms_5wucOt1RKXo4qb51X3WRhUJhxm",
+    imgUrl:
+      "https://drive.google.com/open?id=1hkIZWac17FDUaHsvhgTwsEmuKQ8WjtHX",
     linkedin: "https://www.linkedin.com/in/clarinda-susan-158898259/",
   },
   {
     name: "Cletus Rajkumar",
     role: "Research Lead",
     img: "cletus.jpg",
-    imgUrl: "https://drive.google.com/open?id=1Ns_5wucOt1RKXo4qb51X3WRhUJhxm",
+    imgUrl:
+      "https://drive.google.com/open?id=1h6QoXSspFaZLPx1FgCx0XN64XIFw4Yt1",
     linkedin: "https://www.linkedin.com/in/cletus-rajkumar-40513525a/",
     github: "https://github.com/calledforth",
   },
@@ -48,7 +53,6 @@ export const TEAM_MEMBERS = [
     name: "Kartheesan Senthilkumar",
     role: "Web Lead",
     img: "kartheesan.jpg",
-    imgUrl: "https://drive.google.com/open?id=1Os_5wucOt1RKXo4qb51X3WRhUJhxm",
     linkedin: "https://www.linkedin.com/in/kartheesan05/",
     github: "https://github.com/kartheesan05",
   },
@@ -56,14 +60,16 @@ export const TEAM_MEMBERS = [
     name: "Arun Vellayan Srinivasan",
     role: "Joint Secretary",
     img: "arun.jpg",
-    imgUrl: "https://drive.google.com/open?id=1Ps_5wucOt1RKXo4qb51X3WRhUJhxm",
+    imgUrl:
+      "https://drive.google.com/open?id=1qPhh6wrXTHvJ4HDAXC8NuWLPoxmXtEpQ",
     linkedin: "https://www.linkedin.com/in/arun-vellayan-srinivasan",
   },
   {
     name: "Madhushree SN",
     role: "Planning Lead",
     img: "madhushree.jpg",
-    imgUrl: "https://drive.google.com/open?id=1Qs_5wucOt1RKXo4qb51X3WRhUJhxm",
+    imgUrl:
+      "https://drive.google.com/open?id=1MwATq7w4yMcMKBJYLliQH7krXXznk0Qq",
     linkedin: "https://www.linkedin.com/in/madhushree-naga/",
     github: "https://github.com/madhushree0517",
   },
@@ -71,7 +77,8 @@ export const TEAM_MEMBERS = [
     name: "Devananth V",
     role: "Marketing Lead",
     img: "devananth.jpg",
-    imgUrl: "https://drive.google.com/open?id=1Rs_5wucOt1RKXo4qb51X3WRhUJhxm",
+    imgUrl:
+      "https://drive.google.com/open?id=1Xol0bj-0WS-mMcJ43SlryOp_maLTC_Fs",
     linkedin: "https://www.linkedin.com/in/devananth-v-a231802bb",
     github: "https://github.com/Devananth1302",
   },
@@ -79,13 +86,13 @@ export const TEAM_MEMBERS = [
     name: "Siddharth J K",
     role: "Editorial Lead",
     img: "siddharth.jpg",
-    imgUrl: "https://drive.google.com/open?id=1Ss_5wucOt1RKXo4qb51X3WRhUJhxm",
   },
   {
     name: "Kevin Christopher",
     role: "Tech Lead",
     img: "kevin.jpg",
-    imgUrl: "https://drive.google.com/open?id=1Ts_5wucOt1RKXo4qb51X3WRhUJhxm",
+    imgUrl:
+      "https://drive.google.com/open?id=1yjPBdHp-6agnLfajDaN108d3MH-DNkjN",
     linkedin: "https://www.linkedin.com/in/kevin-christopher-a579862a7",
   },
   {
@@ -198,7 +205,7 @@ export const TEAM_MEMBERS = [
   {
     name: "Sharmila M",
     role: "Marketing Executive",
-    img: "sharmila.jpg", 
+    img: "sharmila.jpg",
     imgUrl:
       "https://drive.google.com/open?id=1wjLegM-vAMzWi5k6PgXUty1XPB9wAklE",
     linkedin: "https://www.linkedin.com/in/sharmila-manogaran-0b9994328",
@@ -253,7 +260,7 @@ export const TEAM_MEMBERS = [
     linkedin: "https://www.linkedin.com/in/mridulasa",
   },
   {
-    name: "P Prarthana", 
+    name: "P Prarthana",
     role: "Research Executive",
     img: "prarthana.jpg",
     imgUrl:
@@ -262,7 +269,7 @@ export const TEAM_MEMBERS = [
   },
   {
     name: "Sanjay Joshua S",
-    role: "Research Executive", 
+    role: "Research Executive",
     img: "sanjay.jpg",
     imgUrl:
       "https://drive.google.com/open?id=1waVhcMnZ9afT5hvyClElU0EenowkEUvp",
@@ -272,23 +279,26 @@ export const TEAM_MEMBERS = [
     name: "Balakrishnan R",
     role: "Senior Web Developer",
     img: "balakrishnan.jpg",
-    imgUrl: "https://drive.google.com/open?id=1-ohj-R1y-egdLF0otzN4WfALmvxqgCFe",
+    imgUrl:
+      "https://drive.google.com/open?id=1-ohj-R1y-egdLF0otzN4WfALmvxqgCFe",
     linkedin: "https://www.linkedin.com/in/balakrishnan-r-5a1006278",
-    github: "https://github.com/BalaKrishnan1708"
+    github: "https://github.com/BalaKrishnan1708",
   },
   {
     name: "Harish S",
     role: "Senior Web Developer",
-    img: "harish.jpg", 
-    imgUrl: "https://drive.google.com/open?id=1Flp6dF4aPA1YYyPxdqKgijqYE3mmw2tx",
+    img: "harish.jpg",
+    imgUrl:
+      "https://drive.google.com/open?id=1Flp6dF4aPA1YYyPxdqKgijqYE3mmw2tx",
     linkedin: "https://www.linkedin.com/in/harish-s-928015294",
-    github: "https://github.com/S-Harish2005"
+    github: "https://github.com/S-Harish2005",
   },
   {
     name: "Dravid E",
     role: "Web Developer",
     img: "dravid.jpg",
-    imgUrl: "https://drive.google.com/open?id=14hRTc7XV1apb6lOlUjDOw2fhJR_DlA7D",
-    linkedin: "https://www.linkedin.com/in/dravid-e-01192b327"
+    imgUrl:
+      "https://drive.google.com/open?id=14hRTc7XV1apb6lOlUjDOw2fhJR_DlA7D",
+    linkedin: "https://www.linkedin.com/in/dravid-e-01192b327",
   },
 ];
