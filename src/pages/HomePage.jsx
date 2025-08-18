@@ -1,13 +1,13 @@
 import { NavLink } from "react-router-dom";
 
 const members = [
-  { name: "Arunima Muralitharan", role: "President", img: "arunima.jpeg" },
-  { name: "Adithi Kalyanaraman", role: "Vice President - Planning", img: "adithi.jpg" },
-  { name: "Ajay A", role: "Vice President - Research", img: "ajay.jpg" },
-  { name: "Kirthana V", role: "Treasurer", img: "kirthana.jpg" },
-  { name: "Clarinda Susan", role: "Secretary", img: "clarinda.jpg" },
-  { name: "Cletus Rajkumar", role: "Research Lead", img: "cletus.jpg" },
-  { name: "Kartheesan Senthilkumar", role: "Web Lead", img: "kartheesan.jpg" },
+  { name: "Arunima Muralitharan", role: "President", img: "arunima.webp" },
+  { name: "Adithi Kalyanaraman", role: "Vice President - Planning", img: "adithi.webp" },
+  { name: "Ajay A", role: "Vice President - Research", img: "ajay.webp" },
+  { name: "Kirthana V", role: "Treasurer", img: "kirthana.webp" },
+  { name: "Clarinda Susan", role: "Secretary", img: "clarinda.webp" },
+  { name: "Cletus Rajkumar", role: "Research Lead", img: "cletus.webp" },
+  { name: "Kartheesan Senthilkumar", role: "Web Lead", img: "kartheesan.webp" },
 ]
 
 export default function HomePage() {
