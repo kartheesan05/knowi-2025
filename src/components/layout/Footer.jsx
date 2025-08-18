@@ -24,9 +24,9 @@ export default function Footer() {
           </div>
           <div className="col">
             <div className="col-title">Resources</div>
+            <a className="f-link" href="https://www.svce.ac.in/departments/computer-science-and-engineering/?page=technical-associations&subMenu=know-i" target="_blank" rel="noreferrer">Find us at SVCE Website</a>
             <a className="f-link" href="/reports/annual-report-24-25.pdf" target="_blank" rel="noreferrer">Annual Report</a>
             <a className="f-link" href="/reports/analytics-showdown3.0-2024-2025.pdf" target="_blank" rel="noreferrer">Analytics Showdown</a>
-            <a className="f-link" href="/reports/hackml2.0-2024-2025.pdf" target="_blank" rel="noreferrer">HackML 2.0</a>
           </div>
           <div className="col">
             <div className="col-title">Connect</div>
