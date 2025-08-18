@@ -1,6 +1,7 @@
 import { NavLink } from "react-router-dom";
 import GithubIcon from "../icons/GithubIcon";
 import LinkedInIcon from "../icons/LinkedInIcon";
+import InstagramIcon from "../icons/InstagramIcon";
 
 export default function Footer() {
   const year = new Date().getFullYear();
@@ -36,6 +37,9 @@ export default function Footer() {
               </a>
               <a className="icon-btn" href="https://www.linkedin.com/company/know-i-club/" target="_blank" rel="noreferrer" aria-label="LinkedIn">
                 <LinkedInIcon color="#fff" />
+              </a>
+              <a className="icon-btn" href="https://www.instagram.com/know_i_club/" target="_blank" rel="noreferrer" aria-label="Instagram">
+                <InstagramIcon color="#fff" />
               </a>
             </div>
           </div>
