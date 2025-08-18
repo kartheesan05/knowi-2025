@@ -4,16 +4,20 @@ import HomePage from "./pages/HomePage.jsx";
 import TeamPage from "./pages/TeamPage.jsx";
 import EventsPage from "./pages/EventsPage.jsx";
 import EventDetailPage from "./pages/EventDetailPage.jsx";
+import ScrollToTop from "./components/ScrollToTop.jsx";
 
 export default function App() {
   return (
-    <Routes>
-      <Route element={<Shell />}>
-        <Route path="/" element={<HomePage />} />
-        <Route path="/team" element={<TeamPage />} />
-        <Route path="/events" element={<EventsPage />} />
-        <Route path="/events/:slug" element={<EventDetailPage />} />
-      </Route>
-    </Routes>
+    <>
+      <ScrollToTop />
+      <Routes>
+        <Route element={<Shell />}>
+          <Route path="/" element={<HomePage />} />
+          <Route path="/team" element={<TeamPage />} />
+          <Route path="/events" element={<EventsPage />} />
+          <Route path="/events/:slug" element={<EventDetailPage />} />
+        </Route>
+      </Routes>
+    </>
   );
 }
