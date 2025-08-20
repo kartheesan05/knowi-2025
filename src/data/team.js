@@ -285,15 +285,6 @@ export const TEAM_MEMBERS = [
     github: "https://github.com/BalaKrishnan1708",
   },
   {
-    name: "Harish S",
-    role: "Senior Web Developer",
-    img: "harish.webp",
-    imgUrl:
-      "https://drive.google.com/open?id=1Flp6dF4aPA1YYyPxdqKgijqYE3mmw2tx",
-    linkedin: "https://www.linkedin.com/in/harish-s-928015294",
-    github: "https://github.com/S-Harish2005",
-  },
-  {
     name: "Dravid E",
     role: "Web Developer",
     img: "dravid.webp",
