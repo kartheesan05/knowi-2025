@@ -71,7 +71,7 @@ export const TEAM_MEMBERS = [
     imgUrl:
       "https://drive.google.com/open?id=1MwATq7w4yMcMKBJYLliQH7krXXznk0Qq",
     linkedin: "https://www.linkedin.com/in/madhushree-naga/",
-    github: "https://github.com/madhushree0517",
+    // github: "https://github.com/madhushree0517",
   },
   {
     name: "Devananth V",
